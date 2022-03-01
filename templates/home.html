@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <div class="container" style="padding-top: 30vh; padding-right: 10vw; padding-left: 10vw;">
+    <div class="container" style="padding-top: 20vh; padding-right: 10vw; padding-left: 10vw;">
         <div class="row">
           <div class="col" >
             <h2 style="padding-bottom: 15px;">Zadejte hrubou mzdu:</h2>
@@ -13,9 +13,21 @@
                 <div class="mb-3" style="padding-right: 5vw;">
         
                     <input type="number" style="margin-bottom: 30px; margin-right: -50px;" onchange="send()" class="form-control" id="summ" placeholder="Zadejte svoji hrubou měsíční mrzdu" aria-describedby="emailHelp">
-                    <p><input type="checkbox" onchange="send()"  class="form-check-input" id="check">
-                    <label class="form-check-label" for="exampleCheck1">Podepsal jsem základní slevu na poplatníka</label> </p>
-                      
+                    <p><input type="checkbox" checked onchange="send()"  class="form-check-input" id="check">
+                    <label class="form-check-label" for="exampleCheck1">Prohlášení k dani (růžový formulář)</label> </p>
+                    <p><input type="checkbox" onchange="send()"  class="form-check-input" id="student">
+                    <label class="form-check-label" for="exampleCheck1">Jsem student</label> </p>
+                    <p><input type="checkbox" onchange="send()"  class="form-check-input" id="handicap">
+                    <label class="form-check-label" for="exampleCheck1">Jsem ZTP/P</label> </p>
+                    invalidní důchod:
+                    <select class="form-select form-select-sm" onchange="send()" id="invalid" style="width: 150px; margin-bottom: 10px;" aria-label="Default select example">
+                      <option selected>Ne</option>
+                      <option value="1">1. a 2. stupeň</option>
+                      <option value="2">3. stupeň</option>
+                    </select>
+                    <H5>Daňové zvýhodnění:</H5>
+                    <input type="number" style="margin-bottom: 30px; width: 300px;" onchange="send()" class="form-control" id="kids" placeholder="Počet dětí bez ZTP/P" aria-describedby="emailHelp">
+                    <input type="number" style="margin-bottom: 30px; width: 300px;" onchange="send()" class="form-control" id="kids_handicap" placeholder="Počet dětí se ZTP/P" aria-describedby="emailHelp">
                     <button type="submit" class="btn btn-primary" onclick="get_values();">Vypočítat</button>
                 
                 </div>
@@ -44,9 +56,20 @@
         
           var summ = document.getElementById("summ")
           var check = document.querySelector("#check")
+          var student = document.querySelector("#student")
+          var handicap = document.querySelector("#handicap")
+          var invalid = document.querySelector("#invalid")
+          var kids = document.getElementById("kids")
+          var kids_handicap = document.getElementById("kids_handicap")
+
           var entry = {
             summ: summ.value,
-            check: check.checked
+            check: check.checked,
+            student: student.checked,
+            handicap: handicap.checked,
+            invalid: invalid.value,
+            kids: kids.value,
+            kids_handicap: kids_handicap.value
             
           };
           
