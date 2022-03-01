@@ -1,5 +1,5 @@
 
-from ast import While
+# This Python file uses the following encoding: utf-8
 from flask import Flask, jsonify, render_template, request, session
 import math
 
@@ -155,9 +155,9 @@ def calculation():
             kids_handicap -= 1
 
     ### finální kalkulace čisté mzdy ###
-    result = summ - tax - math.ceil(medical_tax) - math.ceil(social_tax)
+    result =int( summ - tax - math.ceil(medical_tax) - math.ceil(social_tax))
 
-    return jsonify(' ',render_template("calculation.html", result = str(result), discount = discount, tax = tax, medical_tax = math.ceil(medical_tax), social_tax = math.ceil(social_tax)))
+    return jsonify(' ',render_template("calculation.html", result = str(result), discount = discount, tax = int(tax), medical_tax = math.ceil(medical_tax), social_tax = math.ceil(social_tax)))
 
 
 if __name__ == "__main__":
