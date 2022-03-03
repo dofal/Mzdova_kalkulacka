@@ -145,12 +145,12 @@ def calculation():
             tax = tax - 2534
             kids_handicap -= 1
             num_kids += 1
-        if num_kids == 2:
+        elif num_kids == 2:
             tax = tax - 3720
             kids_handicap -= 1
             num_kids += 1
            
-        if num_kids >= 3:
+        else:
             tax = tax - 4640
             kids_handicap -= 1
 
@@ -161,4 +161,4 @@ def calculation():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug= True)
