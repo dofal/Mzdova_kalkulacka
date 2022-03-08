@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #F6F7FC;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px;
+    font-weight: 400;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+h5 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.main-container {
+    width: 50vw;
+    margin: 15vh auto 0 auto;
+    padding: 2vw;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    
+}
+
+.main-container h2 {
+    margin-bottom: 2rem;
+}
+
+.main-container p {
+    margin: 1rem 0;
+}
+
+.main-container input {
+    padding: 0.7rem 1rem;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: #fff;
+}
+
+.main-container input:focus {
+    outline: 2px solid #EB7E39; 
+}
+
+input[type=checkbox] {
+    accent-color:#EB7E39;
+}
+
+
+.wage-input {
+    width: 30rem;
+}
+
+.retirement select {
+    border-radius: 0;
+    padding: 0.5rem;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: #fff;
+}
+
+.retirement select:focus {
+    outline: none;
+}
+
+.tax-discount {
+    margin-top: 1rem;
+}
+
+
+
+.tax-discount input {
+    margin-right: 0.5rem;
+}
+
+.submit-button {
+    margin-top: 2rem;
+}
+
+button {
+    border: none;
+    background-color: #EB7E39;
+    color: #FFF;
+    padding: 0.7rem 3rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.message-container {
+    padding: 1.5rem;
+    background-color: #F6F7FC;
+}
