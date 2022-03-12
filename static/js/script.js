@@ -45,3 +45,14 @@ function send() {
     message_container.classList.add('message-container-style');
 
 }
+
+$("#button-one").click(function(event){
+  event.preventDefault();
+  $(".tax-discount").slideToggle("slow");
+}); 
+
+$("#button-two").click(function(event){
+  event.preventDefault();
+  $(".tax-discount-kids").slideToggle("slow");
+});  
+

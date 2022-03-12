@@ -14,12 +14,16 @@
 	<div class="main-container">
 		<div class="form-container">
 			<h2>Zadejte hrubou mzdu:</h2>
-			<input class="wage-input" type="number" onchange="send()" id="summ" placeholder="Zadejte svoji hrubou měsíční mrzdu">
+			<input class="wage-input" type="number" onchange="send()" id="summ" placeholder="Zadejte svoji hrubou měsíční mrzdu" required>
 			
-				<div class="wrapper">
-					<input type="checkbox" checked onchange="send()" id="check">
-					<label for="check">Prohlášení k dani (růžový formulář)</label>
-				</div>
+			<div class="wrapper">
+				<input type="checkbox" checked onchange="send()" id="check">
+				<label for="check">Prohlášení k dani (růžový formulář)</label>
+			</div>
+			<div class="submit-button">
+				<button id="button-one" type="submit">Daňové slevy</button>
+			</div>
+			<div class="tax-discount">
 				<div class="wrapper">
 					<input type="checkbox" onchange="send()" id="student">
 					<label for="student">Jsem student</label>
@@ -28,16 +32,22 @@
 					<input type="checkbox" onchange="send()" id="handicap">
 					<label for="handicap">Jsem ZTP/P</label>
 				</div>
-			<div class="retirement">
-				<h5>Invalidní důchod:</h5>
-				<select onchange="send()" id="invalid">
-					<option selected>Ne</option>
-					<option value="1">1. a 2. stupeň</option>
-					<option value="2">3. stupeň</option>
-				</select>
+				<div class="retirement">
+					<h5>Invalidní důchod:</h5>
+					<select onchange="send()" id="invalid">
+						<option class="" selected>Ne</option>
+						<option value="1">1. a 2. stupeň</option>
+						<option value="2">3. stupeň</option>
+					</select>
+				</div>
 			</div>
 			
-			<div class="tax-discount">
+
+			<div class="submit-button">
+				<button id="button-two" type="submit">Deti</button>
+			</div>
+			
+			<div class="tax-discount-kids">
 				<h5>Daňové zvýhodnění:</h5>
 				<input type="number" onchange="send()" id="kids" placeholder="Počet dětí bez ZTP/P" >
 				<input type="number" onchange="send()" id="kids_handicap" placeholder="Počet dětí se ZTP/P" >

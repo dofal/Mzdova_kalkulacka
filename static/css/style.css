@@ -34,7 +34,7 @@ h5 {
     margin-bottom: 2rem;
 }
 
-.wage-input,.tax-discount input {
+.wage-input,.tax-discount-kids input {
     padding: 0.7rem 1rem; 
     border: none;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -61,17 +61,26 @@ input[type=checkbox]:focus {
     background-color: #fff;
 }
 
+.retirement option {
+    padding: 20px;
+}
+
 .retirement select:focus {
     outline: none;
 }
 
 .tax-discount {
+    display: none;
+}
+
+.tax-discount-kids {
+    display: none;
     margin-top: 1rem;
 }
 
 
 
-.tax-discount input {
+.tax-discount-kids input {
     margin-right: 0.5rem;
 }
 
