@@ -1,14 +1,16 @@
-function send() {  
-      
-    var summ = document.getElementById("summ")
-    var check = document.querySelector("#check")
-    var student = document.querySelector("#student")
-    var handicap = document.querySelector("#handicap")
-    var invalid = document.querySelector("#invalid")
-    var kids = document.getElementById("kids")
-    var kids_handicap = document.getElementById("kids_handicap")
+    let summ = document.getElementById("summ")
+    let check = document.querySelector("#check")
+    let student = document.querySelector("#student")
+    let handicap = document.querySelector("#handicap")
+    let invalid = document.querySelector("#invalid")
+    let kids = document.getElementById("kids")
+    let kids_handicap = document.getElementById("kids_handicap")
 
-    var entry = {
+    let message_container = document.querySelector("#message");
+
+
+function send() {  
+      let entry = {
       summ: summ.value,
       check: check.checked,
       student: student.checked,
@@ -16,10 +18,8 @@ function send() {
       invalid: invalid.value,
       kids: kids.value,
       kids_handicap: kids_handicap.value
-      
     };
     
-
     fetch('/', {
 
       method: "POST",
@@ -28,16 +28,11 @@ function send() {
       cache: "no-cache",
       headers : new Headers({
         "content-type" : "application/json"
-
-
       })
-
-    
     })
-    
-  }
+}
 
-  function get_values(){
+  function get_values() {
     $.ajax({
       type: "POST",
       url: "/calculation",
@@ -46,4 +41,7 @@ function send() {
         $(result).replaceWith(data)
       }
     });
-  }
+
+    message_container.classList.add('message-container-style');
+
+}
