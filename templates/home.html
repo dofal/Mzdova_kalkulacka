@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="cz">
+<html lang="cs">
 
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha512-L7MWcK7FNPcwNqnLdZq86lTHYLdQqZaz5YcAgE+5cnGmlw8JT03QB2+oxL100UeB6RlzZLUxCGSS4/++mNZdxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
 	<title>Daňová kalkulačka</title>
 </head>
@@ -14,18 +15,19 @@
 		<div class="form-container">
 			<h2>Zadejte hrubou mzdu:</h2>
 			<input class="wage-input" type="number" onchange="send()" id="summ" placeholder="Zadejte svoji hrubou měsíční mrzdu">
-			<p>
-				<input type="checkbox" checked onchange="send()" id="check">
-				<label for="exampleCheck1">Prohlášení k dani (růžový formulář)</label>
-			</p>
-			<p>
-				<input type="checkbox" onchange="send()" id="student">
-				<label for="exampleCheck1">Jsem student</label>
-			</p>
-			<p>
-				<input type="checkbox" onchange="send()" id="handicap">
-				<label for="exampleCheck1">Jsem ZTP/P</label>
-			</p>
+			
+				<div class="wrapper">
+					<input type="checkbox" checked onchange="send()" id="check">
+					<label for="check">Prohlášení k dani (růžový formulář)</label>
+				</div>
+				<div class="wrapper">
+					<input type="checkbox" onchange="send()" id="student">
+					<label for="student">Jsem student</label>
+				</div>
+				<div class="wrapper">
+					<input type="checkbox" onchange="send()" id="handicap">
+					<label for="handicap">Jsem ZTP/P</label>
+				</div>
 			<div class="retirement">
 				<h5>Invalidní důchod:</h5>
 				<select onchange="send()" id="invalid">
@@ -52,6 +54,9 @@
 			</span>
 		</div>
 	</div>
+
+	
+
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="{{ url_for('static',filename='js/script.js') }}"></script>

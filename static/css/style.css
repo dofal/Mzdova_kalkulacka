@@ -6,7 +6,6 @@
     padding: 0;
     background-color: #F6F7FC;
     font-family: 'Poppins', sans-serif;
-    border-radius: 3px;
     font-weight: 400;
 }
 
@@ -26,19 +25,14 @@ h5 {
     margin: 15vh auto 0 auto;
     padding: 2vw;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    
 }
 
 .main-container h2 {
     margin-bottom: 2rem;
 }
 
-.main-container p {
-    margin: 1rem 0;
-}
-
-.main-container input {
-    padding: 0.7rem 1rem;
+.wage-input,.tax-discount input {
+    padding: 0.7rem 1rem; 
     border: none;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: #fff;
@@ -48,10 +42,9 @@ h5 {
     outline: 2px solid #EB7E39; 
 }
 
-input[type=checkbox] {
-    accent-color:#EB7E39;
+input[type=checkbox]:focus {
+    outline: none;
 }
-
 
 .wage-input {
     width: 30rem;
@@ -90,9 +83,70 @@ button {
     padding: 0.7rem 3rem;
     font-weight: 500;
     font-size: 0.9rem;
+    cursor: pointer;
 }
 
 .message-container {
     padding: 1.5rem;
     background-color: #F6F7FC;
 }
+
+
+.wrapper {
+    
+    /* height: 200px;
+    width: 400px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; */
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.wrapper input {
+    appearance: none;
+    
+    width:23px; 
+    height: 23px; 
+    background-color: #d5d5d5;
+    border-radius: none; 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+}
+
+.wrapper input::after {
+    font-family:"Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00c";   /* Font awesome icon code */ 
+    font-size: 12px;    /* Size of the icon */
+    color: #fff;
+    display: none;
+}
+
+.wrapper input:checked {
+    background-color: #EB7E39;
+}
+
+.wrapper input:checked:after {
+    display: block;
+}
+
+.wrapper label {
+    margin-left: 0.5rem;
+    color: #4c4c4c;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+
+
+
