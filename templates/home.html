@@ -20,8 +20,9 @@
 				<input type="checkbox" checked onchange="send()" id="check">
 				<label for="check">Prohlášení k dani (růžový formulář)</label>
 			</div>
-			<div class="submit-button">
-				<button id="button-one" type="submit">Daňové slevy</button>
+			<div class="roll-button">
+				<button id="button-one" type="submit">Daňové slevy<i class="fas fa-angle-down"></i></button>
+				
 			</div>
 			<div class="tax-discount">
 				<div class="wrapper">
@@ -43,8 +44,8 @@
 			</div>
 			
 
-			<div class="submit-button">
-				<button id="button-two" type="submit">Deti</button>
+			<div class="roll-button">
+				<button id="button-two" type="submit">Deti<i class="fas fa-angle-down"></i></button>
 			</div>
 			
 			<div class="tax-discount-kids">
@@ -52,9 +53,9 @@
 				<input type="number" onchange="send()" id="kids" placeholder="Počet dětí bez ZTP/P" >
 				<input type="number" onchange="send()" id="kids_handicap" placeholder="Počet dětí se ZTP/P" >
 			</div>
-			<div class="submit-button">
-				<button type="submit" onclick="get_values();">Vypočítat</button>
-			</div>
+			
+			<button class="submit-button type="submit" onclick="get_values();">Vypočítat</button>
+			
 		</div>
 
 		<div id="message">

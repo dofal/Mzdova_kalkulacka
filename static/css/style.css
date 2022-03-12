@@ -86,13 +86,32 @@ input[type=checkbox]:focus {
 
 .submit-button {
     margin-top: 2rem;
+    padding: 0.7rem 3rem;
+    background-color: #EB7E39;
+    color: #FFF;
+}
+
+.roll-button {
+    margin-top: 2rem;
+    display: flex;
+    
+}
+
+.roll-button button {
+    display: flex;
+    padding: 0.7rem 2rem 0.7rem 2rem;
+    width: 14rem;
+    justify-content: space-between;
+}
+
+.roll-button  i {
+    color: #EB7E39 ;
+    font-size: 1.5rem;
 }
 
 button {
     border: none;
-    background-color: #EB7E39;
-    color: #FFF;
-    padding: 0.7rem 3rem;
+    
     font-weight: 500;
     font-size: 0.9rem;
     cursor: pointer;
