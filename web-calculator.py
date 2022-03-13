@@ -155,9 +155,12 @@ def calculation():
             kids_handicap -= 1
 
     ### finální kalkulace čisté mzdy ###
-    result =int( summ - tax - math.ceil(medical_tax) - math.ceil(social_tax))
-
-    return jsonify(' ',render_template("calculation.html", result = str(result), discount = discount, tax = int(tax), medical_tax = math.ceil(medical_tax), social_tax = math.ceil(social_tax)))
+    result = "{:,}".format(int( summ - tax - math.ceil(medical_tax) - math.ceil(social_tax)))
+    tax = "{:,}".format(tax)
+    medical_tax ="{:,}".format(math.ceil(medical_tax)) 
+    social_tax ="{:,}".format(math.ceil(social_tax)) 
+    
+    return jsonify(' ',render_template("calculation.html", result = result, discount = discount, tax = tax, medical_tax = medical_tax, social_tax = social_tax))
 
 
 if __name__ == "__main__":

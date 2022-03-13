@@ -11,7 +11,9 @@
 </head>
 
 <body>
+
 	<div class="main-container">
+		<h1>Mzdová kalkulačka 2022</h1>
 		<div class="form-container">
 			<h2>Zadejte hrubou mzdu:</h2>
 			<input class="wage-input" type="number" onchange="send()" id="summ" placeholder="Zadejte svoji hrubou měsíční mrzdu" required>
@@ -59,10 +61,10 @@
 		</div>
 
 		<div id="message">
-			<span id="result">
+			<div id="result">
 				{{ result }}
 				{{ discount }}
-			</span>
+			</div> 
 		</div>
 	</div>
 

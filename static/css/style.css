@@ -30,12 +30,17 @@ h5 {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+.main-container h1 {
+    margin-bottom: 2rem;
+}
+
 .main-container h2 {
     margin-bottom: 2rem;
 }
 
 .wage-input,.tax-discount-kids input {
     padding: 0.7rem 1rem; 
+    font-size: 1rem;
     border: none;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: #fff;
@@ -169,6 +174,16 @@ button {
     font-size: 1rem;
     font-weight: 400;
     cursor: pointer;
+}
+
+#message p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    
+}
+
+#message span{
+    font-weight: 500;
 }
 
 
