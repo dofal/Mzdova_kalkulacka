@@ -186,16 +186,24 @@ button {
     font-weight: 500;
 }
 
-#message a {
-    position: relative;
+#message i {
     color: #EB7E39;
 }
 
-#message a:hover,#message a:focus,#message a:visited {
+#message i:hover {
+    cursor: pointer;
+}
+
+#message i:hover,#message i:focus,#message i:visited {
     color: #EB7E39;
+}
+
+#message a {
+    position: relative;   
 }
 
 #message a:after {
+    cursor: auto;
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     font-size: 1rem;
@@ -206,15 +214,16 @@ button {
     padding: 1rem;
     color: #fff;
     margin: auto;
-    left: -6em;
+    left: -7.5em;
     right: 0;
-    bottom: 1.5em;
+    bottom: 2em;
     text-align: center;
     border-radius: 0.2em;
+    transition: opacity 0.3s ease-in;
 }
 
 #message a:before {
-    position: absolute;
+    /* position: absolute;
     content: "";
     height: 0;
     width: 0;
@@ -222,21 +231,18 @@ button {
     border-left: 0.5em solid transparent;
     border-right: 0.5em solid transparent;
     margin: auto;
-    left: 0em;
+    left: -1em;
     right: 0;
-    bottom: 1em;
+    bottom: 1.35em;
+    transition: opacity 0.4s ease-in; */
 }
 
 #message a:before,#message a:after {
-    display: none;
-}
-
-#message a:hover:before,#message a:hover:after {
-    display: block;
+    opacity: 0;
 }
 
 
-
+#message i:hover + #tooltip:before,#message i:hover + #tooltip:after { opacity: 1; }
 
 
 
