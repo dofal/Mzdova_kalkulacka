@@ -121,7 +121,7 @@ def calculation():
 
     num_kids = 0 ### hlídač počtu dětí ###
 
-    if kids is not None and check == True:
+    if kids is not None and check == True and summ >= 16200:
         if kids == 1:
             tax = tax - 1267
             num_kids += 1
@@ -139,7 +139,7 @@ def calculation():
         num_kids = 3
 
     ### daňový bonus - děti - hendikepované ###
-    while kids_handicap != 0 and check == True:
+    while kids_handicap != 0 and check == True and summ >= 16200:
 
         if num_kids == 1:
             tax = tax - 2534
