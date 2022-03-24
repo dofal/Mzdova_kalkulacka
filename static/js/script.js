@@ -46,6 +46,8 @@ function send() {
 
 }
 
+
+
 $("#button-one").click(function(event){
   event.preventDefault();
   $(".tax-discount").slideToggle("slow");

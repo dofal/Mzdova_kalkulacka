@@ -16,10 +16,10 @@
 		<h1 style="font-weight: 800;">Mzdová kalkulačka 2022</h1>
 		<div class="form-container">
 			<h2>Zadejte hrubou mzdu:</h2>
-			<input class="wage-input" type="number" onchange="send()" id="summ" placeholder="Zadejte svoji hrubou měsíční mrzdu" required>
+			<input class="wage-input" type="number" name="summ" placeholder="Zadejte svoji hrubou měsíční mrzdu" required>
 			
 			<div class="wrapper">
-				<input type="checkbox" checked onchange="send()" id="check">
+				<input type="checkbox" checked id="check">
 				<label for="check">Prohlášení k dani (růžový formulář)</label>
 			</div>
 			<div class="roll-button">
@@ -28,16 +28,16 @@
 			</div>
 			<div class="tax-discount">
 				<div class="wrapper">
-					<input type="checkbox" onchange="send()" id="student">
+					<input type="checkbox" id="student">
 					<label for="student">Jsem student</label>
 				</div>
 				<div class="wrapper">
-					<input type="checkbox" onchange="send()" id="handicap">
+					<input type="checkbox" id="handicap">
 					<label for="handicap">Jsem ZTP/P</label>
 				</div>
 				<div class="retirement">
 					<h5>Invalidní důchod:</h5>
-					<select onchange="send()" id="invalid">
+					<select id="invalid">
 						<option class="" selected>Ne</option>
 						<option value="1">1. a 2. stupeň</option>
 						<option value="2">3. stupeň</option>
@@ -52,24 +52,53 @@
 			
 			<div class="tax-discount-kids">
 				<h5>Daňové zvýhodnění:</h5>
-				<input type="number" onchange="send()" id="kids" placeholder="Počet dětí bez ZTP/P" >
-				<input type="number" onchange="send()" id="kids_handicap" placeholder="Počet dětí se ZTP/P" >
+				<input type="number" name="kids" placeholder="Počet dětí bez ZTP/P" >
+				<input type="number" name="kids_handicap" placeholder="Počet dětí se ZTP/P" >
 			</div>
-			
-			<button class="submit-button type="submit" onclick="get_values();">Vypočítat</button>
-			
+			<a href=# id=process_input>
+			<button class="submit-button type="submit">Vypočítat</button>
+			</a>
 		</div>
-
+		
+		
 		<div id="message">
 			<div id="result">
-				{{ result }}
-				{{ discount }}
-			</div> 
+				<p>Vaše čistá měsíčni mzda činí:</p>
+				<h2 id="resulte"></h2>
+				<p id="tax"><span>Daň:</span> <a href="#" data-tip="Pokud tato částka výjde v mínusu, jedná se o daňový bonus. Pro vyplacení daňového bonusu musí tato částka dosáhnout alespoň 100kč."><i class="fas fa-info-circle"></i></a></p>
+				<p id="social_tax"><span>Sociální odvody:</span> {{social_tax}},- Kč</p>
+				<p id="medical_tax"><span>Zdravotní odvody:</span> {{medical_tax}},- Kč</p>
+				
+			</div>
 		</div>
 	</div>
 
 	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type=text/javascript>
+			$(function() {
+		  		$('a#process_input').bind('click', function() {
+					$.getJSON('/calculation', {
 
+						summ: $('input[name="summ"]').val(),
+						check: $('#check').prop('checked'),
+						student: $('#student').prop('checked'),
+						handicap: $('#handicap').prop('checked'),
+						invalid: $('#invalid').val(),
+						kids: $('input[name="kids"]').val(),
+						kids_handicap: $('input[name="kids_handicap"]').val()
+
+					}, function(data) {
+			  			$("#resulte").text(data.result);
+						$("#tax").text(data.tax);
+						$("#medical_tax").text(data.medical_tax);
+						$("#social_tax").text(data.social_tax)
+
+					});
+					return false;
+		  		});
+			});
+	</script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="{{ url_for('static',filename='js/script.js') }}"></script>
