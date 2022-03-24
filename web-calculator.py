@@ -1,5 +1,6 @@
 
 # This Python file uses the following encoding: utf-8
+from turtle import turtlesize
 from flask import Flask, jsonify, render_template, request, session
 import math
 
@@ -41,14 +42,18 @@ def home():
 @app.route("/calculation", methods=["POST", "GET"])
 def calculation():
    
-   ### make it local from session ###
-    summ = int(session["summ"])
-    check = session["check"]
-    student = session["student"]
-    handicap = session["handicap"]
-    invalid = session["invalid"]
-    kids = session["kids"]
-    kids_handicap = session["kids_handicap"]
+   ### get data from jQuery ###
+    
+
+    summ = request.args.get('summ', 0, type=int)
+    check = request.args.get('check', 0, type=str)
+    student = request.args.get('student', 0, type=str)
+    handicap = request.args.get('handicap', 0, type=str)
+    invalid = request.args.get('invalid', 0, type=str)
+    kids = request.args.get('kids', 0, type=int)
+    kids_handicap = request.args.get('kids_handicap', 0, type=int)
+
+    print(summ, check, student, handicap, invalid)
 
     tax_basic = int(math.ceil(summ / 100.0)) * 100 ### hrubou mzdu musíme zaokrouhlit na stovky nahoru ###
 
@@ -80,37 +85,37 @@ def calculation():
         kids_handicap = 0
 
     ### Růžové prohlášení ano/ne ###
-    if check == True:
+    if check == "true":
         discount = "sleva uplatněna"
         if tax <= 2570:
             tax = 0
         else:
             tax = tax - 2570
 
-    if check == False:
+    else:
         discount = "sleva neuplatněna"
 
     ### student ano/ne ###
-    if student and check == True:
+    if student == "true" and check == "true":
         if tax <= 335:
             tax = 0
         else:
             tax = tax - 335
 
     ### ZTP/P - 3 možnosti ###
-    if handicap and check == True:
+    if handicap == "true" and check == "true":
         if tax <= 1345:
             tax = 0
         else:
             tax = tax - 1345
     
-    if invalid == "1" and check == True:
+    if invalid == "1" and check == "true":
         if tax <= 210:
             tax = 0
         else:
             tax = tax - 210
     
-    if invalid == "2" and check == True:
+    if invalid == "2" and check == "true":
         if tax <= 420:
             tax = 0
         else:
@@ -121,7 +126,7 @@ def calculation():
 
     num_kids = 0 ### hlídač počtu dětí ###
 
-    if kids is not None and check == True and summ >= 16200:
+    if kids is not None and check == "true" and summ >= 16200:
         if kids == 1:
             tax = tax - 1267
             num_kids += 1
@@ -139,7 +144,7 @@ def calculation():
         num_kids = 3
 
     ### daňový bonus - děti - hendikepované ###
-    while kids_handicap != 0 and check == True and summ >= 16200:
+    while kids_handicap != 0 and check == "true" and summ >= 16200:
 
         if num_kids == 1:
             tax = tax - 2534
@@ -154,13 +159,16 @@ def calculation():
             tax = tax - 4640
             kids_handicap -= 1
 
-    ### finální kalkulace čisté mzdy ###
-    result = "{:,}".format(int( summ - tax - math.ceil(medical_tax) - math.ceil(social_tax)))
-    tax = "{:,}".format(tax)
-    medical_tax ="{:,}".format(math.ceil(medical_tax)) 
-    social_tax ="{:,}".format(math.ceil(social_tax)) 
     
-    return jsonify(' ',render_template("calculation.html", result = result, discount = discount, tax = tax, medical_tax = medical_tax, social_tax = social_tax))
+    
+
+    ### finální kalkulace čisté mzdy ###
+    result = "{:,}".format(int( summ - tax - math.ceil(medical_tax) - math.ceil(social_tax))) + ",- Kč"
+    tax = "{:,}".format(tax) + ",- Kč"
+    medical_tax ="{:,}".format(math.ceil(medical_tax)) + ",- Kč"
+    social_tax ="{:,}".format(math.ceil(social_tax)) + ",- Kč"
+    
+    return jsonify(result = result, tax = tax, medical_tax = medical_tax, social_tax = social_tax)
 
 
 if __name__ == "__main__":
