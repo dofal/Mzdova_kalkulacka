@@ -27,6 +27,7 @@ h5 {
     width: 50vw;
     margin: 10vh auto 0 auto;
     padding: 2vw;
+    padding-bottom: 1vw;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -91,6 +92,7 @@ input[type=checkbox]:focus {
 
 .submit-button {
     margin-top: 2rem;
+    margin-bottom: 1rem;
     padding: 0.7rem 3rem;
     background-color: #EB7E39;
     color: #FFF;
@@ -176,10 +178,21 @@ button {
     cursor: pointer;
 }
 
+ #result {
+    display: none;
+} 
+
 #message p {
     font-weight: 300;
     font-size: 1.2rem;
+}
+
+#message .warning {
+    margin-top: 2rem;
     
+    font-size: 0.9rem;
+    color: #a1a2a5;
+    /* border-top: 1px solid #EB7E39; */
 }
 
 #message span{

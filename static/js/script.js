@@ -21,9 +21,11 @@ $(function() {
         <i class="fas fa-info-circle"></i>
         </a>
       </p>
-      <p>Sociální odvody: <span id="social_tax"></span>${data.social_tax}</p>
-      <p>Zdravotní odvody: <span id="medical_tax"></span>${data.medical_tax}</p>
-    `);
+      <p>Sociální odvody: <span id="social_tax">${data.social_tax}</span></p>
+      <p>Zdravotní odvody: <span id="medical_tax">${data.medical_tax}</span></p>
+      
+      <p class="warning">(Tvůrci nijak nezodpovídají za správnost výsledku a nelze se na ně 100% spoléhat.)</p>
+    `).show('slow');
   });
   return false;
   });
