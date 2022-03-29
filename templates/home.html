@@ -44,8 +44,7 @@
 					</select>
 				</div>
 			</div>
-			
-
+		
 			<div class="roll-button">
 				<button id="button-two" type="submit">Deti<i class="fas fa-angle-down"></i></button>
 			</div>
@@ -60,48 +59,11 @@
 			</a>
 		</div>
 		
-		
 		<div id="message">
 			<div id="result">
 			</div>
 		</div>
 	</div>
-
-	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script type=text/javascript>
-			$(function() {
-		  		$('a#process_input').bind('click', function() {
-					$.getJSON('/calculation', {
-
-						summ: $('input[name="summ"]').val(),
-						check: $('#check').prop('checked'),
-						student: $('#student').prop('checked'),
-						handicap: $('#handicap').prop('checked'),
-						invalid: $('#invalid').val(),
-						kids: $('input[name="kids"]').val(),
-						kids_handicap: $('input[name="kids_handicap"]').val()
-
-					}, function(data) {
-						$("#result").html('');
-						$("#result").append(`
-							<p>Vaše čistá měsíčni mzda činí:</p>
-							<h2>${data.result}</h2>
-							<p>Daň:
-								<span id="tax">${data.tax}</span>
-								<a href="#" data-tip="Pokud tato částka výjde v mínusu, jedná se o daňový bonus. Pro vyplacení daňového bonusu musí tato částka dosáhnout alespoň 100kč.">
-								<i class="fas fa-info-circle"></i>
-								</a>
-							</p>
-							<p>Sociální odvody: <span id="social_tax"></span>${data.social_tax}</p>
-							<p>Zdravotní odvody: <span id="medical_tax"></span>${data.medical_tax}</p>
-						`);
-					});
-					return false;
-		  		});
-			});
-	</script>
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="{{ url_for('static',filename='js/script.js') }}"></script>
 </body>

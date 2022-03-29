@@ -1,51 +1,33 @@
-    let summ = document.getElementById("summ")
-    let check = document.querySelector("#check")
-    let student = document.querySelector("#student")
-    let handicap = document.querySelector("#handicap")
-    let invalid = document.querySelector("#invalid")
-    let kids = document.getElementById("kids")
-    let kids_handicap = document.getElementById("kids_handicap")
+$(function() {
+  $('a#process_input').bind('click', function() {
+  $.getJSON('/calculation', {
 
-    let message_container = document.querySelector("#message");
+    summ: $('input[name="summ"]').val(),
+    check: $('#check').prop('checked'),
+    student: $('#student').prop('checked'),
+    handicap: $('#handicap').prop('checked'),
+    invalid: $('#invalid').val(),
+    kids: $('input[name="kids"]').val(),
+    kids_handicap: $('input[name="kids_handicap"]').val()
 
-
-function send() {  
-      let entry = {
-      summ: summ.value,
-      check: check.checked,
-      student: student.checked,
-      handicap: handicap.checked,
-      invalid: invalid.value,
-      kids: kids.value,
-      kids_handicap: kids_handicap.value
-    };
-    
-    fetch('/', {
-
-      method: "POST",
-      credentials: "include",
-      body: JSON.stringify(entry),
-      cache: "no-cache",
-      headers : new Headers({
-        "content-type" : "application/json"
-      })
-    })
-}
-
-  function get_values() {
-    $.ajax({
-      type: "POST",
-      url: "/calculation",
-      dataType: 'json', 
-      success: function(data){
-        $(result).replaceWith(data)
-      }
-    });
-
-    message_container.classList.add('message-container-style');
-
-}
-
+  }, function(data) {
+    $("#result").html('');
+    $("#result").append(`
+      <p>Vaše čistá měsíčni mzda činí:</p>
+      <h2>${data.result}</h2>
+      <p>Daň:
+        <span id="tax">${data.tax}</span>
+        <a href="#" data-tip="Pokud tato částka výjde v mínusu, jedná se o daňový bonus. Pro vyplacení daňového bonusu musí tato částka dosáhnout alespoň 100kč.">
+        <i class="fas fa-info-circle"></i>
+        </a>
+      </p>
+      <p>Sociální odvody: <span id="social_tax"></span>${data.social_tax}</p>
+      <p>Zdravotní odvody: <span id="medical_tax"></span>${data.medical_tax}</p>
+    `);
+  });
+  return false;
+  });
+});
 
 
 $("#button-one").click(function(event){
