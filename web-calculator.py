@@ -164,9 +164,9 @@ def calculation():
 
     ### finální kalkulace čisté mzdy ###
     result = "{:,}".format(int( summ - tax - math.ceil(medical_tax) - math.ceil(social_tax))) + ",- Kč"
-    tax = "{:,}".format(tax) + ",- Kč"
-    medical_tax ="{:,}".format(math.ceil(medical_tax)) + ",- Kč"
-    social_tax ="{:,}".format(math.ceil(social_tax)) + ",- Kč"
+    tax = "{:,}".format(int(tax)) + ",- Kč"
+    medical_tax ="{:,}".format(int(math.ceil(medical_tax))) + ",- Kč"
+    social_tax ="{:,}".format(int(math.ceil(social_tax))) + ",- Kč"
     
     return jsonify(result = result, tax = tax, medical_tax = medical_tax, social_tax = social_tax)
 
