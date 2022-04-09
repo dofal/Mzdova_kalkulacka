@@ -56,7 +56,7 @@ input[type=checkbox]:focus {
 }
 
 .wage-input {
-    width: 30rem;
+    width: 25.5rem;
 }
 
 .retirement select {
@@ -83,8 +83,6 @@ input[type=checkbox]:focus {
     display: none;
     margin-top: 1rem;
 }
-
-
 
 .tax-discount-kids input {
     margin-right: 0.5rem;
@@ -127,7 +125,6 @@ button {
 .message-container-style {
     margin-top: 1rem;
     padding: 1rem; 
-    /* background-color: #F6F7FC;  */
     background-color: #fff; 
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
@@ -248,8 +245,89 @@ button {
     display: block;
 }
 
+/* Media Queries: 1040px */
 
+@media screen and (max-width: 1060px) {
+    .tax-discount-kids input {
+        margin-bottom: 8px;
+    }
+}
 
+@media screen and (max-width: 880px) {
+
+    .main-container {
+        width: 440px;
+    }
+
+    .wage-input {
+        width: 100%;
+    } 
+} 
+
+@media screen and (max-width: 440px) {
+    .main-container {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    .main-container h1 {
+        font-size: 1.5rem;
+    }
+    
+    .main-container h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .wage-input {
+        font-size: 0.8em;
+    } 
+
+    .wrapper label {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .main-container h1 {
+        font-size: 1.3rem;
+    }
+
+    .main-container h2 {
+        font-size: 1.1rem;
+    }
+
+    .roll-button button {
+        
+        width: 100%;
+    }
+
+    .submit-button {
+        width: 100%;
+    }
+
+    #result {
+        padding: 10px;
+    }
+}
+
+ @media screen and (max-width: 275px) {
+    .main-container h1 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .main-container h2 {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .wage-input {
+        font-size: 0.8em;
+    } 
+ }
 
 
 
