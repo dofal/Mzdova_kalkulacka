@@ -8,36 +8,15 @@ app = Flask(__name__)
 app.secret_key = "jsiodjfiewnown7881U2HD912HND912"
 
 
+
+
 @app.route("/", methods=["POST", "GET"] )
 def home():
-    
-    ### data poslána ###
-    if request.method == "POST":
-
-        ### load data from fetch ###
-        script = request.get_json()
-        summ = script['summ']
-        check = script['check']
-        student = script["student"]
-        handicap = script["handicap"]
-        invalid = script["invalid"]
-        kids = script["kids"]
-        kids_handicap = script["kids_handicap"]
-        
-        
-        ### make it global ###
-        session["summ"] = summ
-        session["check"] = check
-        session["student"] = student
-        session["handicap"] = handicap
-        session["invalid"] = invalid
-        session["kids"] = kids
-        session["kids_handicap"] = kids_handicap
-
-    
-       
 
     return render_template("home.html")
+
+
+
 
 @app.route("/calculation", methods=["POST", "GET"])
 def calculation():
@@ -170,6 +149,6 @@ def calculation():
     
     return jsonify(result = result, tax = tax, medical_tax = medical_tax, social_tax = social_tax)
 
-
+### run app ###
 if __name__ == "__main__":
-    app.run(debug= True)
+    app.run()
