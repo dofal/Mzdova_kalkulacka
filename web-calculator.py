@@ -1,6 +1,6 @@
 
 # This Python file uses the following encoding: utf-8
-from turtle import turtlesize
+
 from flask import Flask, jsonify, render_template, request, session
 import math
 
