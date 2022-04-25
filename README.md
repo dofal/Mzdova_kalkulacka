@@ -5,4 +5,4 @@ která lidem spočítá jejich čistou mzdu a bere v potaz růžové prohlášen
 
 Aplikace běží zde: https://mzdovakalkulacka2022.herokuapp.com
 
-Doufám, že se vám aplikace líbí. 
+Doufám, že se vám aplikace líbí.
